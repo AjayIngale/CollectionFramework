@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class MapMethodsRevision {
 
@@ -86,10 +87,21 @@ public class MapMethodsRevision {
 		    
 		    for (Integer value2 : set) {
 		    	System.out.println(value2);
-				
-			}
+				}
 		    
 		    
+		    Map<Integer,String>hm3=new TreeMap<Integer,String>();
+		    
+     		   hm3.put(1,"Prajkta");
+			   hm3.put(2, "Sanika");
+			   hm3.put(3, "Tanuja");
+			   hm3.put(4, "Prajkta");
+			   hm3.put(5, "Anushka");
+			   hm3.put(6, "");
+			  
+			   hm3.put(7, null);
+			   
+			   System.out.println(hm3);
 		    
 	}
 
