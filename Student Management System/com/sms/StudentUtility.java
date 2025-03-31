@@ -1,5 +1,6 @@
 package com.sms;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentUtility {
@@ -28,5 +29,33 @@ public class StudentUtility {
 		
 		
 		}
+	
+	// To display student in proper format  // studentList
+	
+	public void displayStudentInfo(List<Student> studentList) {
+		
+		for(Student student :studentList) {
+			System.out.println(student);
+		}
+	 }
+	
+	// Logic to delete the student
+	
+	public List<Student> deleteStudent(List<Student>studentList1,int rollNo) {
+	
+		for(Student student:studentList1) {
+			Student s=student;
+			if(s.getRollNo()==rollNo) {
+				studentList1.remove(s);
+				System.out.println("Student is deleted");
+			}
+		}
+		
+		List<Student>slist=studentList1;
+		
+		return studentList1;
+	}
+	
+	
 
 }

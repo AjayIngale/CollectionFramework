@@ -8,8 +8,7 @@ public class StudentTest {
 	
 	public static void main(String[] args) {
 		List<Student>studentList=new ArrayList<>();
-		
-		
+		StudentUtility studentUtility=new StudentUtility();		
 		while(true) {
 			System.out.println("***Student Management System ***");
 			System.out.println("1.Add Student \n2.Update Student\n3.Display All Students \n4.Delete STudent \n5.exit");
@@ -18,7 +17,7 @@ public class StudentTest {
 			int option=sc.nextInt();
 			switch (option) {
 			case 1:  // Add
-				StudentUtility studentUtility=new StudentUtility();
+				
 				Student student=  studentUtility.addStudent();
 				studentList.add(student);
 				System.out.println("Student added Succefully");
@@ -28,13 +27,22 @@ public class StudentTest {
 				break;
 				
 	         case 3:  // display all the students
-	        	System.out.println(studentList);
+	        		
+	              studentUtility.displayStudentInfo(studentList);
+	          
 				break;
 				
 	         case 4:  // Delete the student
-	        	 System.out.println("Delete Student");
+	        	
+	        	 System.out.println("Enter Roll no to delete the Student : ");
+	        	int rollNo= sc.nextInt();
+	        	
+	        studentList= studentUtility.deleteStudent(studentList, rollNo);
+	        	 
+	        	 System.out.println(studentList);
+	        	 
 	 			break;
-	 			
+	 			  
 	 			
 	         case 5:  // Exit
 	        	 

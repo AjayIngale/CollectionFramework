@@ -27,8 +27,10 @@ public class StudentManagementSystem {
    
     		break;
     		case 2:
-    			
-    		break;
+    			System.out.println("Enter Studet Roll to update : ");
+    			int sId=sc.nextInt();
+    			List<Student> updatedList=studentUtility.updateStudent(studentList,sId);
+    			break;
     			
     		case 3:
     		  
