@@ -1,5 +1,6 @@
 package com.sms;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -41,19 +42,28 @@ public class StudentUtility {
 	
 	// Logic to delete the student
 	
-	public List<Student> deleteStudent(List<Student>studentList1,int rollNo) {
+	public List<Student> deleteStudent(List<Student>studentList,int rollNo) {
+		// This will Throw conCurrent Modification exception since we are iterating using for-each 
+		//also trying to remove from the list.
 	
-		for(Student student:studentList1) {
-			Student s=student;
-			if(s.getRollNo()==rollNo) {
-				studentList1.remove(s);
-				System.out.println("Student is deleted");
-			}
-		}
+//		for(Student student:studentList) {  
+//			Student s=student;
+//			if(s.getRollNo()==rollNo) {
+//				studentList.remove(s);
+//				System.out.println("Student is deleted");
+//			}
+//		}
 		
-		List<Student>slist=studentList1;
+		Iterator<Student> iterator = studentList.iterator();
+	    while (iterator.hasNext()) {
+	        Student student = iterator.next();
+	        if (student.getRollNo() == rollNo) {
+	            iterator.remove();  // Safe way to remove an element
+	            System.out.println("Student is deleted");
+	        }
+	    }
 		
-		return studentList1;
+		return studentList;
 	}
 	
 	
