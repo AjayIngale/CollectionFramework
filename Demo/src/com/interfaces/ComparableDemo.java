@@ -12,13 +12,16 @@ public class ComparableDemo {
 		 empList.add(new Employee(2, "Vijay", 40000));
 		 empList.add(new Employee(4, "Sujay", 80000));
 		 empList.add(new Employee(3, "Sanjay", 10000));
+		 empList.add(new Employee(5, "Ajay", 10000));
 		 
 	   for (Employee employee : empList) {
 		   System.out.println(employee);
 		
 	    }
 	   
-	   Collections.sort(empList);
+	  // Collections.sort(empList);
+	   
+	   Collections.sort(empList,new NameComparator());
 	   
 	 
 	   
@@ -29,6 +32,19 @@ public class ComparableDemo {
 		   System.out.println(employee);
 		
 	    }
+	   
+	   Collections.sort(empList,new SalaryComparator());
+	   
+	   System.out.println("After Salary :");
+	   
+	   
+	   for (Employee employee : empList) {
+		   System.out.println(employee);
+		
+	    }
+	   
+	   
+	   
 	}
 	
 
