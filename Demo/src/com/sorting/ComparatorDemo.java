@@ -18,9 +18,9 @@ public class ComparatorDemo {
 		 
 		 System.out.println("Before Sort :");
 		 
-		 for ( Employee employee : empList) {
-			System.out.println(employee);
-		}
+
+		 
+		 empList.forEach(employee->System.out.println(employee));
 		 
 		 // I want sort employees using employee Id
 		 // Create IdComparator  class
@@ -33,26 +33,22 @@ public class ComparatorDemo {
 		 Collections.sort(empList,idComparator);
 		 
 		 System.out.println("After Sort By Id : ");
-		 for (Employee employee : empList) {
-			System.out.println(employee);
-		  }
+
+		 empList.forEach(employee->System.out.println(employee));
 		 
 		 Collections.sort(empList, new NameComparator());
 		 
 		 System.out.println("Sort by Using Name : ");
 		 
-		 for (Employee employee : empList) {
-			System.out.println(employee);
-		}
+//		 for (Employee employee : empList) {
+//			System.out.println(employee);
+//		}
 		 
 		 System.out.println("Sort by Using Name by descending: ");
 		 Collections.sort(empList,new NameDescComparator());
 		 
-		 for (Employee employee : empList) {
-			 
-			 System.out.println(employee);
-			
-		}
+
+		 empList.forEach(employee->System.out.println(employee));
 		 
 		 
 		 
