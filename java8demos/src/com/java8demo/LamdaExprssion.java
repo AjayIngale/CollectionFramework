@@ -27,9 +27,5 @@ public class LamdaExprssion {
 	
 	System.out.println(sum);
 		
-		
 	}
-	
-	
-
-}
+	}
