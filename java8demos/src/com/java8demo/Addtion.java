@@ -1,6 +1,6 @@
 
 package com.java8demo;
-
+@FunctionalInterface
 interface addInterface{
 	public int add (int num1,int num2);
 }
@@ -13,9 +13,6 @@ public class Addtion {
 		int sum=addInterface.add(10,20);
 		System.out.println(sum);
 		
-		
-		
-		
-	}
+		}
 
 }

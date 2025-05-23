@@ -6,14 +6,12 @@ interface interf{
 	
 }
 
-
-
 public class Test {
 	public static void main(String[] args) {
 		
-		
-		
 		interf i=()-> {System.out.println("Hello");};
+		i.printHello();
+	
 		
 	}
 
