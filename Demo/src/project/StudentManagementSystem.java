@@ -15,7 +15,7 @@ public class StudentManagementSystem {
      while(true) {
     	 System.out.println("Student Management Program : ");
     	 System.out.println("============================================");
-    	 System.out.println("1.Add Student \n2.Update Student\n3.Display All Students \n4.Delete Student \n0.Exit");
+    	 System.out.println("1.Add Student \n2.Update Student\n3.Display All Students \n4.Delete Student \n61.sortStudents \n0.Exit");
     	 System.out.println("Please select your Option : ");
     	 int option=sc.nextInt();
     	 
@@ -46,11 +46,17 @@ public class StudentManagementSystem {
     			System.out.println(studentList);
     			
     			break;
+    		case 6:
+    			System.out.println("Students after Sorting : ");
+    		  List<Student>sortedStuent=studentUtility.getSortedStudent(studentList);
+    		 sortedStuent.forEach(s->System.out.println(s));
 	         case 5:
 	        	
 	        	System.exit(0);
     			
     			break;   
+    			
+	         
 
     		default:
     			System.out.println("Sorry.. No Option Found");

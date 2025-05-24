@@ -1,28 +1,35 @@
 package project;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-
+import java.util.Optional;
 import java.util.Scanner;
+import java.util.function.Consumer;
 
 public class StudentUtility {
 	
 	public Student addStudent() {
 		
 		Student student=new Student();
-		
-		System.out.println("Enter Student Information : ");
-		System.out.println("Enter Student rollNo : ");
 		Scanner sc=new Scanner(System.in);
-		int rollNo=sc.nextInt();
-		student.setRollNo(rollNo);
+		System.out.println("Enter Student Information : ");
+		Consumer<Student> setRollNo = s -> {
+            System.out.println("Enter Student rollNo : ");
+            s.setRollNo(sc.nextInt());
+        };
+        
+		Consumer<Student>setName=s->{
 		System.out.println("Enter Student Name : ");
 		sc.nextLine();
-		String name=sc.nextLine();
-		student.setName(name);
+		s.setName(sc.nextLine());
+		};
+		
+		Consumer<Student>setMarks=s->{
 		System.out.println("Enter Student Marks : ");
-		int marks=sc.nextInt();
-		student.setMarks(marks);
-		System.out.println(student);
+		s.setMarks(sc.nextInt());
+		};
+		setRollNo.andThen(setName).andThen(setMarks).accept(student);
 		return student;
 		
 	}
@@ -30,51 +37,56 @@ public class StudentUtility {
 	
 	public void displayStudents(List<Student> studentList) {
 		System.out.println("Student Information : ");
-		for (Student student : studentList) {
-			
-			System.out.println(student);
-		}
+		studentList.forEach(s->System.out.println(s));
 	 }
 	
 	
 	public List<Student> deleteStudent(List<Student> studentList,int sId) {
-		
-		for (Student student : studentList) {
-		    Student s= student;
-		    if(s.getRollNo()==sId) {
-		    	studentList.remove(s);
-		    	
-		    	
-		    }
-		    
-		}
-		
-		System.out.println(studentList);
+		studentList.removeIf(s->s.getRollNo()==sId);
 		return studentList;
 	 }
 
 
 	public List<Student> updateStudent(List<Student> studentList, int sId) {
 		
+		Optional<Student>studentOpt=studentList.stream().filter(s->s.getRollNo()==sId).findFirst();
 		
-		for (Student student : studentList) {
-		   
-		    if(student.getRollNo()==sId) {
-		    	System.out.println("Enter Student Information : ");
-				Scanner sc=new Scanner(System.in);
-				System.out.println("Enter Student Name : ");
+		studentOpt.ifPresent(student->{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter Student Name : ");
+			String name=sc.nextLine();
+			student.setName(name);
+			System.out.println("Enter Student Marks : ");
+			int marks=sc.nextInt();
+			student.setMarks(marks);
+			System.out.println("Student is Updated Suscessfully");
 			
-				String name=sc.nextLine();
-				student.setName(name);
-				System.out.println("Enter Student Marks : ");
-				int marks=sc.nextInt();
-				student.setMarks(marks);
-				System.out.println("Student is Updated Suscessfully");
-				return studentList;
-		    	
-		    }
-		    
-		}
+			});
+		
+		return  studentList;
+	}
+
+
+	public List<Student> getSortedStudent(List<Student> studentList) {
+		
+		//studentList.sort(Comparator.comparing(Student::getRollNo));
+		
+		 // Collections.sort(studentList,new StudentIdComparator());
+		 
+//		  Collections.sort(studentList,new Comparator<Student>() {
+//
+//			@Override
+//			public int compare(Student s1, Student s2) {
+//				// TODO Auto-generated method stub
+//				return s1.getRollNo()-s2.getRollNo();
+//			}
+//			  
+//			  
+//		  });
+		
+
+
+		
 		return studentList;
 	}
 	

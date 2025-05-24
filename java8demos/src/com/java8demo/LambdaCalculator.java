@@ -8,7 +8,7 @@ interface Calculate{
 public class LambdaCalculator {
 	public static void main(String[] args) {
 		
-		// Addition
+		// Addition;
 		
 		Calculate addition=(num1,num2)->num1+num2;
 		System.out.println("Sum : "+addition.operate(10, 20));
