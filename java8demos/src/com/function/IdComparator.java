@@ -11,3 +11,6 @@ public class IdComparator implements Comparator<Emlpoyee> {
 	}
 
 }
+
+
+//(emp1,emp2)->{return emp1.getEmpId()-emp2.getEmpId();};
