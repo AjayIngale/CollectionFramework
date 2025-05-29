@@ -21,5 +21,5 @@ public class PredecateDemo {
 	System.out.println(biPredicate.test(20,10));
 	
 	}
-
+   
 }
