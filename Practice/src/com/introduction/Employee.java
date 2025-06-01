@@ -1,5 +1,6 @@
 package com.introduction;
 
+import java.util.Objects;
 
 public class Employee  {
 	
@@ -39,7 +40,22 @@ public class Employee  {
 		return "Employee [empId=" + empId + ", name=" + name + ", salary=" + salary + "]";
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		if(this==obj)
+			return true;
+		if(obj==null  && getClass()!=getClass())
+		return false;
+		Employee emp=(Employee) obj;
+		return this.empId==emp.empId && this.salary ==emp.salary && Objects.equals(emp.name,this.name);
+	}
 	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return Objects.hash(empId,name,salary);
+	}
 	
 	
 

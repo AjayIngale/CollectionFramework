@@ -20,16 +20,21 @@ public class ConsumerDemo {
 		 
 		
 		 
-		 empList.forEach((employee)->System.out.println(employee));
-		 empList.forEach((employee)->System.out.println(employee.getEmpName().toUpperCase()));
-		 empList.forEach((employee)->System.out.println(employee.getSalary()));
-		 
-		
+//		 empList.forEach((employee)->System.out.println(employee));
+//		 empList.forEach((employee)->System.out.println(employee.getEmpName().toUpperCase()));
+//		 empList.forEach((employee)->System.out.println(employee.getSalary()));
+//		 
+//		
 	    BiConsumer<String, String>concatstring=(str1,str2)->System.out.println(str1.concat(str2));
 	    concatstring.accept("Ajay", "Ingale");
 	    
 	    BiConsumer<Integer, Integer>sum=(num1,num2)->System.out.println(num1+num2);
 	        sum.accept(10, 20);
+	        
+	        
+	        empList.forEach(emp->System.out.println(emp));
+	      
+	        empList.forEach(System.out::println);
 		 
 		 
 		 
